@@ -17,7 +17,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="min-h-[845px]  m-3 -mt-8 text-white bg-[#000000] rounded-xl max-7xl z-20">
+    <div className="min-h-[845px]  m-3 -mt-8 text-white bg-[#000000] rounded-3xl max-7xl z-20">
       <div className="w-full px-4 py-3 mx-auto lg:py-24 max-w-7xl">
         <div className="flex items-center text-white">
           <ArrowDown className="w-8 h-8 p-2 text-xl border border-white rounded-full" />

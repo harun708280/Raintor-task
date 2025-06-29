@@ -1,7 +1,11 @@
 import Develop from "@/components/shared/Develop";
+import Footer from "@/components/shared/Footer";
 import Hero from "@/components/shared/Hero";
+import Previously from "@/components/shared/Previously";
+
 import Skills from "@/components/shared/Skills";
-import Image from "next/image";
+import WorkProcess from "@/components/shared/WorkProcess";
+
 
 export default function Home() {
   return <div>
@@ -9,5 +13,8 @@ export default function Home() {
     
     <Skills/>
     <Develop/>
+    <Previously/>
+    <WorkProcess/>
+    <Footer/>
   </div>;
 }

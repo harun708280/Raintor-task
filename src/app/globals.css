@@ -68,34 +68,19 @@
 }
 
 
-.falling-text-container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  text-align: center;
-  padding-top: 2em;
+/* In your global CSS file (e.g., globals.css or a dedicated component CSS) */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(var(--tw-rotate, 0));
+  }
+  50% {
+    transform: translateY(-5px) rotate(var(--tw-rotate, 0)); /* Adjust Y for float height */
+  }
+  100% {
+    transform: translateY(0px) rotate(var(--tw-rotate, 0));
+  }
 }
 
-.falling-text-target {
-  display: inline-block;
-}
-
-.word {
-  display: inline-block;
-  margin: 0 2px;
-  user-select: none;
-}
-
-.highlighted {
-  color: cyan;
-  font-weight: bold;
-}
-
-.falling-text-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+.animate-float {
+  animation: float 3s ease-in-out infinite; /* Adjust duration and timing */
 }
