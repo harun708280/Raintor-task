@@ -14,8 +14,8 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="w-full  fixed top-0  z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 lg:py-7 flex justify-between items-center">
+    <nav className="fixed top-0 z-50 w-full">
+      <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl lg:py-7">
         <Link
           href="/"
           className="text-[34px] font-bold text-black dark:text-white uppercase"
@@ -32,7 +32,7 @@ const Nav = () => {
             <li key={link.name}>
               <Link
                 href={link.href}
-                className="hover:text-blue-500 duration-200"
+                className="duration-200 hover:text-blue-500"
               >
                 {link.name}
               </Link>
@@ -40,10 +40,10 @@ const Nav = () => {
           ))}
         </ul>
 
-        <div className="md:flex hidden">
+        <div className="hidden md:flex">
             <IconButton
             icon={ArrowRight}
-            text="Schedule a Call"
+            text="Start Project"
             
           />
 
@@ -65,7 +65,7 @@ const Nav = () => {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white dark:bg-black px-4 pt-2 pb-4 space-y-3">
+        <div className="px-4 pt-2 pb-4 space-y-3 bg-white md:hidden dark:bg-black">
           {navLinks.map((link) => (
             <Link
               key={link.name}

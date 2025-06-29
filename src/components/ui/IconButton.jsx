@@ -6,7 +6,7 @@ const IconButton = ({ icon: Icon, text, onClick, className = "" }) => {
       onClick={onClick}
       className={`flex items-center gap-2 pr-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-300 ${className}`}
     >
-      <Icon className="w-8 h-8 border text-xl border-black p-2 rounded-full" />
+      <Icon className="w-8 h-8 p-2 text-xl border border-black rounded-full dark:border-white " />
       <span className="text-sm font-medium">{text}</span>
     </button>
   );
