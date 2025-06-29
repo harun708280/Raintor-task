@@ -84,3 +84,17 @@
 .animate-float {
   animation: float 3s ease-in-out infinite; /* Adjust duration and timing */
 }
+
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('/fonts/SportingGrotesque/SportingGrotesque-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sporting Grotesque';
+  src: url('/fonts/SportingGrotesque/SportingGrotesque-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}

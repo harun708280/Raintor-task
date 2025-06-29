@@ -14,7 +14,7 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="fixed top-0 z-50 w-full">
+    <nav className="fixed top-0 w-full overflow-hidden z-[999]">
       <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl lg:py-7">
         <Link
           href="/"

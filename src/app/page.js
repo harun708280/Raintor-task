@@ -1,3 +1,4 @@
+import Contact from "@/components/shared/Contact";
 import Develop from "@/components/shared/Develop";
 import Footer from "@/components/shared/Footer";
 import Hero from "@/components/shared/Hero";
@@ -8,13 +9,14 @@ import WorkProcess from "@/components/shared/WorkProcess";
 
 
 export default function Home() {
-  return <div>
+  return <div className=" font-grotesque">
     <Hero/>
     
     <Skills/>
     <Develop/>
     <Previously/>
     <WorkProcess/>
-    <Footer/>
+    <Contact/>
+    
   </div>;
 }

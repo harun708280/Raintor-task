@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight } from "lucide-react";
 
@@ -32,9 +32,9 @@ const WorkProcess = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       if (hoveredIndex === null) {
-        setHoveredIndex(1); // 2nd card auto hover
+        setHoveredIndex(1); // Auto hover 2nd card
       }
-    }, 800); // delay for auto hover
+    }, 800);
     return () => clearTimeout(timer);
   }, [hoveredIndex]);
 
@@ -48,68 +48,75 @@ const WorkProcess = () => {
   };
 
   return (
-    <div className="min-h-[845px] m-3 -mt-8 text-white bg-[#141414] rounded-3xl max-7xl z-20">
-      <div className="w-full px-4 py-3 mx-auto lg:py-24 max-w-7xl">
-        {/* Header Section */}
-        <div className="flex items-center justify-between mb-12 space-x-4">
-          <div className="flex items-center text-white">
-            <ArrowDown className="w-8 h-8 p-2 text-xl border border-white rounded-full" />
-            <p className="px-4 py-1 border rounded-full"> Work Process</p>
+    <section className="bg-[#141414] text-white rounded-[30px] m-4 -mt-5 z-20">
+      <div className="px-4 py-20 mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="flex flex-col items-center justify-between gap-6 mb-12 md:flex-row">
+          <div className="flex items-center gap-3">
+            <ArrowDown className="w-8 h-8 p-2 border border-white rounded-full" />
+            <p className="px-4 py-1 text-sm border rounded-full md:text-base">
+              Work Process
+            </p>
           </div>
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-[58px] text-center">
+          <h2 className="text-3xl text-center md:text-left md:text-5xl lg:text-[58px] font-bold tracking-tight leading-tight">
             My Work Process
           </h2>
-          <div className=""></div>
+          <div className="hidden w-8 md:block" />
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 gap-6 text-black md:grid-cols-2">
+        {/* Cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {cards.map((card, index) => {
-            const isHovered = hoveredIndex === index;
-            const isAutoHovered = autoHover && index === 1 && hoveredIndex === 1;
+            const isHovered =
+              hoveredIndex === index ||
+              (autoHover && hoveredIndex === 1 && index === 1);
 
             return (
               <div
                 key={index}
-                className={`group p-8 rounded-3xl flex flex-col justify-between transition-all duration-500 transform
-                  ${isHovered || isAutoHovered ? "bg-[#ccff00] rotate-3 translate-x-1 translate-y-1 text-black" : "bg-black"}
-                `}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
+                className={`p-8 rounded-3xl transition-all duration-500 transform flex flex-col justify-between group 
+                  ${
+                    isHovered
+                      ? "bg-[#ccff00] rotate-3 translate-x-1 translate-y-1 text-black"
+                      : "bg-black text-white"
+                  }
+                `}
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <h3
-                      className={`text-xl font-semibold sm:text-xl px-6 py-1 rounded-full transition-all duration-500 
-                        ${isHovered || isAutoHovered ? "bg-black text-white" : "bg-[#C5FFEE]"}
-                      `}
-                    >
-                      {card.title}
-                    </h3>
-                    <a
-                      href="#"
-                      className={`flex items-center transition-colors duration-200 underline
-                        ${isHovered || isAutoHovered ? "text-black" : "text-gray-400"}
-                      `}
-                    >
-                      Read More
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </a>
-                  </div>
-                  <p
-                    className={`text-base leading-relaxed transition-all duration-500 sm:text-lg 
-                      ${isHovered || isAutoHovered ? "text-black" : "text-gray-400"}
-                    `}
+                <div className="flex items-center justify-between mb-4">
+                  <h3
+                    className={`px-6 py-1 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-500 ${
+                      isHovered
+                        ? "bg-black text-white"
+                        : "bg-[#C5FFEE] text-black"
+                    }`}
                   >
-                    {card.description}
-                  </p>
+                    {card.title}
+                  </h3>
+                  <a
+                    href="#"
+                    className={`flex items-center gap-1 underline transition-colors duration-300 ${
+                      isHovered ? "text-black" : "text-gray-400"
+                    }`}
+                  >
+                    Read More
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
                 </div>
+                <p
+                  className={`text-sm sm:text-base md:text-lg transition-colors duration-300 ${
+                    isHovered ? "text-black" : "text-gray-400"
+                  }`}
+                >
+                  {card.description}
+                </p>
               </div>
             );
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
