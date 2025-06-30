@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight } from "lucide-react";
+import FadeContent from "../ui/FadeContent";
 
 const cards = [
   {
@@ -48,11 +49,17 @@ const WorkProcess = () => {
   };
 
   return (
-    <section className="bg-[#141414] text-white rounded-[30px] m-4 -mt-5 z-20">
-      <div className="px-4 py-20 mx-auto max-w-7xl">
+    <section className="bg-[#141414] text-white rounded-[30px] lg:m-4 -mt-5 z-20">
+      <FadeContent
+            blur={true}
+            duration={1050}
+            easing="ease-out"
+            initialOpacity={0}
+          >
+            <div className="px-4 py-20 mx-auto max-w-7xl">
         {/* Header */}
         <div className="flex flex-col items-center justify-between gap-6 mb-12 md:flex-row">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center ">
             <ArrowDown className="w-8 h-8 p-2 border border-white rounded-full" />
             <p className="px-4 py-1 text-sm border rounded-full md:text-base">
               Work Process
@@ -116,6 +123,8 @@ const WorkProcess = () => {
           })}
         </div>
       </div>
+          </FadeContent>
+      
     </section>
   );
 };

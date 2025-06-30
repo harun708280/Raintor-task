@@ -2,15 +2,21 @@
 
 import React from "react";
 import Link from "next/link";
+import FadeContent from "../ui/FadeContent";
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-16 lg:-mt-24 m-4 text-white bg-black rounded-[52px] sm:px-6">
-      <div className="mx-auto max-w-7xl">
+    <footer className="px-4 py-16 lg:-mt-24 lg:m-4 text-white bg-black rounded-[52px] sm:px-6">
+        <FadeContent
+            blur={true}
+            duration={1050}
+            easing="ease-out"
+            initialOpacity={0}
+          ><div className="mx-auto max-w-7xl">
         <div className="flex flex-col justify-between gap-12 lg:flex-row">
           {/* Left Section */}
           <div className="lg:w-[40%]">
-            <div className="text-3xl font-bold text-[#C5FF41] sm:text-4xl">
+            <div className="text-3xl font-bold text-[#C5FF41] sm:text-4xl mt-5">
               DEVLOP.ME
             </div>
           </div>
@@ -129,7 +135,8 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div></FadeContent>
+      
     </footer>
   );
 };
