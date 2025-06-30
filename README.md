@@ -21,3 +21,20 @@ This project is a **Frontend Developer Technical Assessment** for Raintor Ltd., 
 - LocalStorage (for theme persistence)
 
 
+## 💻 Setup Instructions
+
+Follow these steps to run the project locally:
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/harun708280/Raintor-task.git
+cd raintor-portfolio-home
+npm install
+# or
+yarn install
+
+Run development server
+npm run dev
+# or
+yarn dev
