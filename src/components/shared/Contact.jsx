@@ -10,6 +10,7 @@ import {
   Twitter,
   Send,
   MessageCircle,
+  Mail,
 } from "lucide-react";
 import IconButton from "../ui/IconButton";
 import { motion } from "framer-motion";
@@ -34,8 +35,7 @@ const Contact = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
-      className="z-0 flex items-center justify-center min-h-screen px-4 transition-colors duration-500 bg-bottom bg-no-repeat bg-cover dark:bg-black overflow-hidden
-      "
+      className="z-0 flex items-center justify-center min-h-screen px-4 overflow-hidden transition-colors duration-500 bg-bottom bg-no-repeat bg-cover dark:bg-black "
       style={{ backgroundImage: "url('/contactbg.png')" }}
     >
       <div className="flex flex-col justify-between w-full gap-12 py-12 md:my-28 max-w-7xl lg:flex-row">
@@ -107,19 +107,25 @@ const Contact = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="flex flex-col pt-4 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4"
             >
-              <IconButton
-                icon={Send}
-                text="Send"
-                className="text-white border-white dark:text-black dark:border-black"
-                iconClassName="text-white dark:text-black"
-              />
-              <IconButton
-                icon={MessageCircle}
-                text="Contact me"
-                className="text-white border-white dark:text-black dark:border-black"
-                iconClassName="text-white dark:text-black"
-                textClassName="text-white dark:text-black"
-              />
+              {/* Send Button */}
+              <button
+                type="button"
+                className="flex items-center gap-2 py-2 pr-6 text-white transition-all duration-300 bg-transparent border border-white rounded-full hover:bg-white hover:text-black dark:text-black dark:border-black dark:hover:bg-black dark:hover:text-white"
+              >
+                <Send className="p-1 border rounded-full h-7 w-7" />
+                <span className="text-sm font-medium">Send</span>
+              </button>
+
+              <p className="text-center text-white dark:text-black">or</p>
+
+              {/* Contact Me Button */}
+              <button
+                type="button"
+                className="flex items-center gap-2 py-2 pr-6 text-white transition-all duration-300 bg-transparent border border-white rounded-full hover:bg-white hover:text-black dark:text-black dark:border-black dark:hover:bg-black dark:hover:text-white"
+              >
+                <Mail className="p-1 border rounded-full h-7 w-7 dark:hover:bg-white" />
+                <span className="text-sm font-medium">Contact me</span>
+              </button>
             </motion.div>
 
             {/* Socials */}
