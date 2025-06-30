@@ -25,7 +25,7 @@ export function CarouselSize() {
             <Card className="bg-[#1c1c1c] border-none text-white transition-all h-full rounded-[30px] shadow-md">
               <CardContent className="flex flex-col justify-between gap-4 p-6 lg:h-64">
                 <Image
-                  src="/react.png"
+                  src="/React.png"
                   alt={skill.title}
                   width={78}
                   height={68}
