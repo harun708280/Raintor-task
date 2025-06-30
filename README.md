@@ -29,7 +29,7 @@ Follow these steps to run the project locally:
 
 ```bash
 git clone https://github.com/harun708280/Raintor-task.git
-cd raintor-portfolio-home
+cd my-landing-page
 npm install
 # or
 yarn install
