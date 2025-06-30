@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/shared/Nav";
+
+import Nav from "@/components/shared/Nav";   // Nav import
 import Footer from "@/components/shared/Footer";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 
@@ -34,7 +35,6 @@ export default function RootLayout({ children }) {
           <Nav />
           {children}
           <Footer />
-          
         </ThemeProvider>
       </body>
     </html>

@@ -18,7 +18,7 @@ const Skills = () => {
   };
 
   return (
-    <section className="relative min-h-[845px] lg:m-4 -mt-8 text-white bg-black rounded-[30px] z-20 flex flex-col justify-center overflow-hidden">
+    <section className=" min-h-[845px] lg:m-4 lg:-mt-8  text-white bg-black rounded-[30px] z-20 flex flex-col justify-center ">
       <div className="flex flex-col justify-center w-full px-4 py-10 mx-auto max-w-7xl lg:py-24">
 
         {/* Top Tag */}

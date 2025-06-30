@@ -28,7 +28,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -54,7 +54,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -67,14 +67,12 @@
   }
 }
 
-
-/* In your global CSS file (e.g., globals.css or a dedicated component CSS) */
 @keyframes float {
   0% {
     transform: translateY(0px) rotate(var(--tw-rotate, 0));
   }
   50% {
-    transform: translateY(-5px) rotate(var(--tw-rotate, 0)); /* Adjust Y for float height */
+    transform: translateY(-5px) rotate(var(--tw-rotate, 0)); 
   }
   100% {
     transform: translateY(0px) rotate(var(--tw-rotate, 0));
@@ -82,19 +80,28 @@
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite; /* Adjust duration and timing */
+  animation: float 3s ease-in-out infinite; 
 }
 
 @font-face {
-  font-family: 'Sporting Grotesque';
-  src: url('/fonts/SportingGrotesque/SportingGrotesque-Regular.otf') format('opentype');
+  font-family: "Sporting Grotesque";
+  src: url("/fonts/SportingGrotesque/SportingGrotesque-Regular.otf")
+    format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Sporting Grotesque';
-  src: url('/fonts/SportingGrotesque/SportingGrotesque-Bold.otf') format('opentype');
+  font-family: "Sporting Grotesque";
+  src: url("/fonts/SportingGrotesque/SportingGrotesque-Bold.otf")
+    format("opentype");
   font-weight: 700;
   font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 80px;
 }

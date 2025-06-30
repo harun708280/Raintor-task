@@ -29,7 +29,7 @@ const fadeIn = (direction = "up", delay = 0) => {
 const Hero = () => {
   return (
     <div
-      className="flex items-center justify-start min-h-screen overflow-hidden bg-no-repeat bg-cover"
+      className="flex items-center justify-start min-h-screen overflow-hidden bg-no-repeat bg-cover "
       style={{ backgroundImage: "url('/herobg.png')" }}
     >
       <div className="flex flex-col justify-center w-full h-full px-4 py-3 mx-auto my-20 max-w-7xl lg:py-7 md:my-28 md:mt-44">

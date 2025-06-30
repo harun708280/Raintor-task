@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import IconButton from "../ui/IconButton";
@@ -11,87 +11,109 @@ const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Portfolio", href: "/projects" },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Portfolio", href: "#portfolio" },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 
-        ${scrolled ? "bg-white/80 dark:bg-black/90 backdrop-blur-md shadow-md" : "bg-transparent"}
-      `}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 dark:bg-black/90 backdrop-blur-md "
+          : "bg-transparent "
+      }`}
+      role="navigation"
+      aria-label="Primary Navigation"
     >
-      <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl md:px-6 lg:py-5">
+      <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl lg:py-5">
         {/* Logo */}
         <Link
-          href="/"
-          className="text-2xl font-bold text-black uppercase sm:text-3xl dark:text-white"
+          href="#home"
+          className="text-[30px] font-bold text-black dark:text-white uppercase"
+          onClick={handleNavLinkClick}
         >
           Develop.me
         </Link>
 
         {/* Desktop Menu */}
         <div className="items-center hidden gap-10 md:flex">
-          <ul className="flex items-center gap-6 text-[16px] text-black dark:text-white">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="transition-colors duration-200 hover:text-blue-500"
+          <ul className="flex gap-8 text-[16px] text-black dark:text-white">
+            {navLinks.map(({ name, href }) => (
+              <li key={name}>
+                {/* Anchor tag for scroll on same page */}
+                <a
+                  href={href}
+                  className="transition-colors duration-200 hover:text-[#C5FF41]"
+                  onClick={handleNavLinkClick}
                 >
-                  {link.name}
-                </Link>
+                  {name}
+                </a>
               </li>
             ))}
           </ul>
 
           <ModeToggle />
-
-          <IconButton icon={ArrowRight} text="Start Project" />
+          <IconButton
+            icon={ArrowRight}
+            text="Start Project"
+            onClick={handleNavLinkClick}
+          />
         </div>
 
-        {/* Mobile Toggle */}
-        <div className="flex items-center gap-2 md:hidden">
+        {/* Mobile Toggle & ModeToggle */}
+        <div className="flex items-center gap-3 md:hidden">
           <ModeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
-            className="text-black dark:text-white"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+            type="button"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? (
+              <X className="w-6 h-6 text-black dark:text-white" />
+            ) : (
+              <Menu className="w-6 h-6 text-black dark:text-white" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="px-4 pt-2 pb-6 space-y-4 text-black bg-white md:hidden dark:bg-black dark:text-white">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="block text-lg hover:text-blue-500"
-              onClick={() => setIsOpen(false)}
+        <div
+          id="mobile-menu"
+          className="absolute left-0 right-0 z-40 px-4 py-6 space-y-4 bg-white shadow-md top-full dark:bg-black md:hidden"
+        >
+          {navLinks.map(({ name, href }) => (
+            <a
+              key={name}
+              href={href}
+              className="block text-lg text-black dark:text-white hover:text-[#C5FF41] py-2 px-3 rounded-md transition-colors duration-200"
+              onClick={handleNavLinkClick}
             >
-              {link.name}
-            </Link>
+              {name}
+            </a>
           ))}
-          <div className="pt-2">
-            <IconButton icon={ArrowRight} text="Start Project" />
+          <div className="pt-4">
+            <IconButton
+              icon={ArrowRight}
+              text="Start Project"
+              onClick={handleNavLinkClick}
+              className="w-full text-lg"
+            />
           </div>
         </div>
       )}

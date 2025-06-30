@@ -5,7 +5,7 @@ import FadeContent from "../ui/FadeContent";
 const Develop = () => {
   return (
     <div
-      className="z-0 flex items-center justify-start min-h-[600px] lg:min-h-[873px] bg-top bg-no-repeat bg-cover mt-0 lg:-mt-20"
+      className="z-0 flex items-center justify-start min-h-[600px] lg:min-h-[873px] bg-top bg-no-repeat bg-cover mt-0 lg:-mt-12"
       style={{ backgroundImage: "url('/devebg.png')" }}
     >
       <div className="w-full px-4 text-black">

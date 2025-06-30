@@ -49,7 +49,7 @@ const WorkProcess = () => {
   };
 
   return (
-    <section className="bg-[#141414] text-white rounded-[30px] lg:m-4 -mt-5 z-20">
+    <section className="bg-[#141414] text-white rounded-[30px] lg:m-4   lg:-mt-9 z-20">
       <FadeContent
             blur={true}
             duration={1050}
